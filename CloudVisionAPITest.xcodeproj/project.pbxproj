@@ -12,9 +12,12 @@
 		5FE0AE6A1FAC600E00C6B7A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE0AE681FAC600E00C6B7A7 /* Main.storyboard */; };
 		5FE0AE6C1FAC600E00C6B7A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE0AE6B1FAC600E00C6B7A7 /* Assets.xcassets */; };
 		5FE0AE6F1FAC600E00C6B7A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE0AE6D1FAC600E00C6B7A7 /* LaunchScreen.storyboard */; };
+		D822BD428853382F8995D37F /* Pods_CloudVisionAPITest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294821CEC2814329820D57C9 /* Pods_CloudVisionAPITest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		294821CEC2814329820D57C9 /* Pods_CloudVisionAPITest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CloudVisionAPITest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		39E664543A2A1CD43221C5C6 /* Pods-CloudVisionAPITest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudVisionAPITest.release.xcconfig"; path = "Pods/Target Support Files/Pods-CloudVisionAPITest/Pods-CloudVisionAPITest.release.xcconfig"; sourceTree = "<group>"; };
 		5FE0AE611FAC600E00C6B7A7 /* CloudVisionAPITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudVisionAPITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE0AE641FAC600E00C6B7A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FE0AE661FAC600E00C6B7A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		5FE0AE6B1FAC600E00C6B7A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FE0AE6E1FAC600E00C6B7A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FE0AE701FAC600E00C6B7A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC4020B414224A562313D150 /* Pods-CloudVisionAPITest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudVisionAPITest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CloudVisionAPITest/Pods-CloudVisionAPITest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D822BD428853382F8995D37F /* Pods_CloudVisionAPITest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07040D04C36BDAA1D914A581 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				294821CEC2814329820D57C9 /* Pods_CloudVisionAPITest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5FE0AE581FAC600E00C6B7A7 = {
 			isa = PBXGroup;
 			children = (
 				5FE0AE631FAC600E00C6B7A7 /* CloudVisionAPITest */,
 				5FE0AE621FAC600E00C6B7A7 /* Products */,
+				EBCCEAD89635001635EEA51D /* Pods */,
+				07040D04C36BDAA1D914A581 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = CloudVisionAPITest;
 			sourceTree = "<group>";
 		};
+		EBCCEAD89635001635EEA51D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FC4020B414224A562313D150 /* Pods-CloudVisionAPITest.debug.xcconfig */,
+				39E664543A2A1CD43221C5C6 /* Pods-CloudVisionAPITest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FE0AE731FAC600E00C6B7A7 /* Build configuration list for PBXNativeTarget "CloudVisionAPITest" */;
 			buildPhases = (
+				DC3D13B83BE128D1C0BF56AC /* [CP] Check Pods Manifest.lock */,
 				5FE0AE5D1FAC600E00C6B7A7 /* Sources */,
 				5FE0AE5E1FAC600E00C6B7A7 /* Frameworks */,
 				5FE0AE5F1FAC600E00C6B7A7 /* Resources */,
+				BE82F6A2320702E33D2ACC87 /* [CP] Embed Pods Frameworks */,
+				E70E703BB93BE39C5049BD78 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BE82F6A2320702E33D2ACC87 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CloudVisionAPITest/Pods-CloudVisionAPITest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CloudVisionAPITest/Pods-CloudVisionAPITest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC3D13B83BE128D1C0BF56AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CloudVisionAPITest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E70E703BB93BE39C5049BD78 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CloudVisionAPITest/Pods-CloudVisionAPITest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5FE0AE5D1FAC600E00C6B7A7 /* Sources */ = {
@@ -259,6 +342,7 @@
 		};
 		5FE0AE741FAC600E00C6B7A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC4020B414224A562313D150 /* Pods-CloudVisionAPITest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = QV974Z4665;
@@ -272,6 +356,7 @@
 		};
 		5FE0AE751FAC600E00C6B7A7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39E664543A2A1CD43221C5C6 /* Pods-CloudVisionAPITest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = QV974Z4665;
