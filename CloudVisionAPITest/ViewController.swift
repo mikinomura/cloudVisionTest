@@ -14,6 +14,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var text: UILabel!
+    @IBOutlet weak var imagePropertyText: UILabel!
     
     @IBAction func selectPhoto(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
@@ -50,10 +51,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         image.image = selected
         
         text.text = "Detecting texts..."
+        imagePropertyText.text = "Detecting image properties..."
         
         dismiss(animated: true, completion: nil)
         
         detectText()
+        
+        detectImageProperty()
     }
     
     enum DetectMethod: String {
@@ -113,6 +117,46 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         // 結果を表示する
         text.text = detectedText
+    }
+    
+    func detectImageProperty() {
+        if let base64image = UIImagePNGRepresentation(image.image!)?.base64EncodedString() {
+            let request: Parameters = [
+                "requests": [
+                    "image": [
+                        "content": base64image
+                    ],
+                    "features": [
+                        [
+                            "type": "IMAGE_PROPERTIES"
+                        ]
+                    ]
+                ]
+            ]
+            
+            let httpHeader: HTTPHeaders = [
+                "Content-Type": "application/json",
+                "X-Ios-Bundle-Identifier": Bundle.main.bundleIdentifier ?? ""
+            ]
+            
+            var googleApiKey = "AIzaSyBK7YdH1J5k6eA1GbPjRnczcPHfLgpnqiY"
+            
+            Alamofire.request("https://vision.googleapis.com/v1/images:annotate?key=\(googleApiKey)", method: .post, parameters: request, encoding: JSONEncoding.default, headers: httpHeader).validate(statusCode: 200..<300).responseJSON { response in
+                // レスポンスの処理
+                self.googleImageResult(response: response)
+            }
+        }
+    }
+    
+    func googleImageResult(response: DataResponse<Any>) {
+        guard let result = response.result.value else {
+            // レスポンスが空っぽだったりしたら終了
+            return
+        }
+        let json = JSON(result)
+        let annotations: JSON = json["responses"]
+        // 結果を表示する
+        imagePropertyText.text = annotations.string 
     }
 
 }
