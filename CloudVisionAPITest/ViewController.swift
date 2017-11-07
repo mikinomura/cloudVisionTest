@@ -154,10 +154,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             return
         }
         let json = JSON(result)
-        let annotations: JSON = json["responses"]
+        let annotations: JSON = json["responses"][0]["imagePropertiesAnnotation"]["dominantColors"]["colors"][0]["color"]
         // 結果を表示する
-        imagePropertyText.text = annotations.string 
+        
+        let blue = annotations["blue"]
+        
+        imagePropertyText.text = String(describing: blue)
     }
+    
 
 }
 
