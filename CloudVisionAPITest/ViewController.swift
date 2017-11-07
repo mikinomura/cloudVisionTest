@@ -155,11 +155,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         let json = JSON(result)
         let annotations: JSON = json["responses"][0]["imagePropertiesAnnotation"]["dominantColors"]["colors"][0]["color"]
-        // 結果を表示する
         
+        let numberOfDominantColors = json["responses"][0]["imagePropertiesAnnotation"]["dominantColors"]["colors"].count
+        // 結果を表示する
         let blue = annotations["blue"]
         
         imagePropertyText.text = String(describing: blue)
+        //imagePropertyText.textColor = UIColor(red: 0.0, green: 0.0, blue: CGFloat(Int(blue) / 255), alpha: 1)
     }
     
 
