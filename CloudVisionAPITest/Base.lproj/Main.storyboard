@@ -40,12 +40,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Image Properties" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VE7-xU-yCn">
-                                <rect key="frame" x="42" y="492" width="310" height="75"/>
+                                <rect key="frame" x="42" y="492" width="138" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xyC-vq-0dm">
+                                <rect key="frame" x="198" y="465" width="121" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -56,6 +61,7 @@
                     <connections>
                         <outlet property="image" destination="krG-n8-sSO" id="axe-dQ-EN4"/>
                         <outlet property="imagePropertyText" destination="VE7-xU-yCn" id="ic3-dj-gdP"/>
+                        <outlet property="square" destination="xyC-vq-0dm" id="bvx-72-duC"/>
                         <outlet property="text" destination="WqA-Zs-oeu" id="l1M-uZ-SD2"/>
                     </connections>
                 </viewController>

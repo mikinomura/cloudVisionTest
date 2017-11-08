@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var text: UILabel!
     @IBOutlet weak var imagePropertyText: UILabel!
+    @IBOutlet weak var square: UIView!
     
     @IBAction func selectPhoto(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
@@ -109,7 +110,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             return
         }
         let json = JSON(result)
-        let annotations: JSON = json["responses"][0]["textAnnotations"]
+        var annotations: JSON = json["responses"][0]["textAnnotations"]
         var detectedText: String = ""
         // 結果からdescriptionを取り出して一つの文字列にする
         annotations.forEach { (_, annotation) in
@@ -154,14 +155,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             return
         }
         let json = JSON(result)
-        let annotations: JSON = json["responses"][0]["imagePropertiesAnnotation"]["dominantColors"]["colors"][0]["color"]
+        var annotations: JSON = json["responses"][0]["imagePropertiesAnnotation"]["dominantColors"]["colors"][0]["color"]
         
         let numberOfDominantColors = json["responses"][0]["imagePropertiesAnnotation"]["dominantColors"]["colors"].count
         // 結果を表示する
-        let blue = annotations["blue"]
+        var blue = annotations["blue"]
+        var blueFloat = blue.floatValue
         
         imagePropertyText.text = String(describing: blue)
         //imagePropertyText.textColor = UIColor(red: 0.0, green: 0.0, blue: CGFloat(Int(blue) / 255), alpha: 1)
+        square.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: CGFloat(blueFloat / 255.0), alpha: 1.0)
     }
     
 
