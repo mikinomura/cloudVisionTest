@@ -13,14 +13,15 @@ import Alamofire
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var text: UILabel!
     @IBOutlet weak var imagePropertyText: UILabel!
-    @IBOutlet weak var square: UIView!
+    
+    
+    @IBOutlet weak var square1: UIView!
+    @IBOutlet weak var square2: UIView!
+    @IBOutlet weak var square3: UIView!
     
     @IBAction func selectPhoto(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
-            //Reset texts
-            text.text = ""
             
             //Pick an image
             let picker = UIImagePickerController()
@@ -51,73 +52,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         image.contentMode = .scaleAspectFit
         image.image = selected
         
-        text.text = "Detecting texts..."
         imagePropertyText.text = "Detecting image properties..."
         
         dismiss(animated: true, completion: nil)
         
-        detectText()
-        
         detectImageProperty()
-    }
-    
-    enum DetectMethod: String {
-        case GOOGLE
-    }
-    
-    var method = DetectMethod.GOOGLE
-    
-    func detectText() {
-        switch method {
-        case DetectMethod.GOOGLE:
-            detectTextGoogle()
-        }
-    }
-    
-    func detectTextGoogle() {
-        if let base64image = UIImagePNGRepresentation(image.image!)?.base64EncodedString() {
-            let request: Parameters = [
-                "requests": [
-                    "image": [
-                        "content": base64image
-                    ],
-                    "features": [
-                        [
-                            "type": "TEXT_DETECTION",
-                            "maxResults": 1
-                        ]
-                    ]
-                ]
-            ]
-            
-            let httpHeader: HTTPHeaders = [
-                "Content-Type": "application/json",
-                "X-Ios-Bundle-Identifier": Bundle.main.bundleIdentifier ?? ""
-            ]
-            
-            var googleApiKey = "AIzaSyBK7YdH1J5k6eA1GbPjRnczcPHfLgpnqiY"
-            
-            Alamofire.request("https://vision.googleapis.com/v1/images:annotate?key=\(googleApiKey)", method: .post, parameters: request, encoding: JSONEncoding.default, headers: httpHeader).validate(statusCode: 200..<300).responseJSON { response in
-                // レスポンスの処理
-                self.googleResult(response: response)
-            }
-        }
-    }
-    
-    func googleResult(response: DataResponse<Any>) {
-        guard let result = response.result.value else {
-            // レスポンスが空っぽだったりしたら終了
-            return
-        }
-        let json = JSON(result)
-        var annotations: JSON = json["responses"][0]["textAnnotations"]
-        var detectedText: String = ""
-        // 結果からdescriptionを取り出して一つの文字列にする
-        annotations.forEach { (_, annotation) in
-            detectedText += annotation["description"].string!
-        }
-        // 結果を表示する
-        text.text = detectedText
     }
     
     func detectImageProperty() {
@@ -151,22 +90,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func googleImageResult(response: DataResponse<Any>) {
         guard let result = response.result.value else {
-            // レスポンスが空っぽだったりしたら終了
+            // Return if the response is empty
             return
         }
         let json = JSON(result)
-        var annotations: JSON = json["responses"][0]["imagePropertiesAnnotation"]["dominantColors"]["colors"][0]["color"]
-        
+        var jsonColors: JSON = json["responses"][0]["imagePropertiesAnnotation"]["dominantColors"]["colors"]
+        //var annotations: JSON = json["responses"][0]["imagePropertiesAnnotation"]["dominantColors"]["colors"][0]["color"]
+        var colorBoxes: Array = [square1, square2, square3]
         let numberOfDominantColors = json["responses"][0]["imagePropertiesAnnotation"]["dominantColors"]["colors"].count
-        // 結果を表示する
-        var blue = annotations["blue"]
-        var blueFloat = blue.floatValue
         
-        imagePropertyText.text = String(describing: blue)
-        //imagePropertyText.textColor = UIColor(red: 0.0, green: 0.0, blue: CGFloat(Int(blue) / 255), alpha: 1)
-        square.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: CGFloat(blueFloat / 255.0), alpha: 1.0)
+        
+        for i in 0...2 {
+            let blue = jsonColors[i]["color"]["blue"].floatValue
+            let red = jsonColors[i]["color"]["red"].floatValue
+            let green = jsonColors[i]["color"]["green"].floatValue
+            
+            colorBoxes[i]?.backgroundColor = UIColor(red: CGFloat(red / 255.0), green: CGFloat(green / 255.0), blue: CGFloat(blue / 255.0), alpha: 1.0)
+        }
     }
     
-
 }
 

@@ -32,13 +32,6 @@
                                     <action selector="selectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SL3-jx-UNW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WqA-Zs-oeu">
-                                <rect key="frame" x="42" y="382" width="277" height="131"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Image Properties" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VE7-xU-yCn">
                                 <rect key="frame" x="42" y="492" width="138" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -46,10 +39,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xyC-vq-0dm">
-                                <rect key="frame" x="198" y="465" width="121" height="128"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xyC-vq-0dm" userLabel="Square1">
+                                <rect key="frame" x="26" y="338" width="40" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="drr-qP-Cgv" userLabel="Square2">
+                                <rect key="frame" x="64" y="338" width="40" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fe2-lj-g4a" userLabel="Square3">
+                                <rect key="frame" x="104" y="338" width="40" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -61,8 +64,9 @@
                     <connections>
                         <outlet property="image" destination="krG-n8-sSO" id="axe-dQ-EN4"/>
                         <outlet property="imagePropertyText" destination="VE7-xU-yCn" id="ic3-dj-gdP"/>
-                        <outlet property="square" destination="xyC-vq-0dm" id="bvx-72-duC"/>
-                        <outlet property="text" destination="WqA-Zs-oeu" id="l1M-uZ-SD2"/>
+                        <outlet property="square1" destination="xyC-vq-0dm" id="FrS-Zi-wc4"/>
+                        <outlet property="square2" destination="drr-qP-Cgv" id="mEe-8y-MS5"/>
+                        <outlet property="square3" destination="Fe2-lj-g4a" id="Cim-NF-Ddx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
