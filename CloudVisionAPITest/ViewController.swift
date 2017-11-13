@@ -99,13 +99,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var colorBoxes: Array = [square1, square2, square3]
         let numberOfDominantColors = json["responses"][0]["imagePropertiesAnnotation"]["dominantColors"]["colors"].count
         
+        var startXPosition = Int((colorBoxes[0]?.frame.origin.x)!)
         
         for i in 0...2 {
             let blue = jsonColors[i]["color"]["blue"].floatValue
             let red = jsonColors[i]["color"]["red"].floatValue
             let green = jsonColors[i]["color"]["green"].floatValue
+            let score = jsonColors[i]["score"].floatValue
+            let yPosition = colorBoxes[i]?.frame.origin.y
+            let width = score * 100
             
             colorBoxes[i]?.backgroundColor = UIColor(red: CGFloat(red / 255.0), green: CGFloat(green / 255.0), blue: CGFloat(blue / 255.0), alpha: 1.0)
+            
+            colorBoxes[i]?.frame = CGRect(x:Int(startXPosition), y: Int(yPosition!), width: Int(width) , height: 100)
+            startXPosition = startXPosition + Int(width)
+   
         }
     }
     
