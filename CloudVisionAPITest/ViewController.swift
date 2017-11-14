@@ -12,9 +12,10 @@ import Alamofire
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-   
+   //UIImageView to stock image datas
     @IBOutlet weak var image: UIImageView!
     
+    //Squares for color spectrums
     @IBOutlet weak var square1: UIView!
     @IBOutlet weak var square2: UIView!
     @IBOutlet weak var square3: UIView!
@@ -24,7 +25,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var square7: UIView!
     @IBOutlet weak var square8: UIView!
     @IBOutlet weak var square9: UIView!
-    
     @IBOutlet weak var square10: UIView!
     
     
@@ -120,7 +120,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    @IBAction func ShareButtonTapped(_ sender: UIButton) {        
+    @IBAction func ShareButtonTapped(_ sender: UIButton) {
         // set up activity view controller
         let imageToShare = [ image! ]
         let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
@@ -132,5 +132,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
     }
+
 }
 
