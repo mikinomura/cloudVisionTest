@@ -11,14 +11,22 @@ import SwiftyJSON
 import Alamofire
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var imagePropertyText: UILabel!
     
+   
+    @IBOutlet weak var image: UIImageView!
     
     @IBOutlet weak var square1: UIView!
     @IBOutlet weak var square2: UIView!
     @IBOutlet weak var square3: UIView!
+    @IBOutlet weak var square4: UIView!
+    @IBOutlet weak var square5: UIView!
+    @IBOutlet weak var square6: UIView!
+    @IBOutlet weak var square7: UIView!
+    @IBOutlet weak var square8: UIView!
+    @IBOutlet weak var square9: UIView!
+    
+    @IBOutlet weak var square10: UIView!
+    
     
     @IBAction func selectPhoto(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
@@ -48,11 +56,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let selected = info[UIImagePickerControllerOriginalImage] as! UIImage
-        
-        image.contentMode = .scaleAspectFit
-        image.image = selected
-        
-        imagePropertyText.text = "Detecting image properties..."
         
         dismiss(animated: true, completion: nil)
         
@@ -96,12 +99,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let json = JSON(result)
         var jsonColors: JSON = json["responses"][0]["imagePropertiesAnnotation"]["dominantColors"]["colors"]
         //var annotations: JSON = json["responses"][0]["imagePropertiesAnnotation"]["dominantColors"]["colors"][0]["color"]
-        var colorBoxes: Array = [square1, square2, square3]
+        var colorBoxes: Array = [square1, square2, square3, square4, square5, square6, square7, square8, square9, square10]
         let numberOfDominantColors = json["responses"][0]["imagePropertiesAnnotation"]["dominantColors"]["colors"].count
         
         var startXPosition = Int((colorBoxes[0]?.frame.origin.x)!)
         
-        for i in 0...2 {
+        for i in 0...9 {
             let blue = jsonColors[i]["color"]["blue"].floatValue
             let red = jsonColors[i]["color"]["red"].floatValue
             let green = jsonColors[i]["color"]["green"].floatValue
