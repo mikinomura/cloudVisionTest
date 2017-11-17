@@ -14,6 +14,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
    //UIImageView to stock image datas
     @IBOutlet weak var image: UIImageView!
+    var selectedImage: UIImageView!
     
     //Squares for color spectrums
     @IBOutlet weak var square1: UIView!
@@ -58,12 +59,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let selected = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         dismiss(animated: true, completion: nil)
+        selectedImage.image = selected
+        
         
         detectImageProperty()
     }
     
     func detectImageProperty() {
-        if let base64image = UIImagePNGRepresentation(image.image!)?.base64EncodedString() {
+        if let base64image = UIImagePNGRepresentation(selectedImage.image!)?.base64EncodedString() {
             let request: Parameters = [
                 "requests": [
                     "image": [
