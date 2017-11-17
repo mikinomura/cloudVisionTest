@@ -59,14 +59,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let selected = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         dismiss(animated: true, completion: nil)
-        selectedImage.image = selected
-        
+        //selectedImage.image = selected
+        image.image = selected
         
         detectImageProperty()
     }
     
     func detectImageProperty() {
-        if let base64image = UIImagePNGRepresentation(selectedImage.image!)?.base64EncodedString() {
+        //Reduce the resolution of the selected image
+        var resizedSelectedImage = image.image?.resized(toWidth: 120.0)
+        
+        if let base64image = UIImagePNGRepresentation(resizedSelectedImage!)?.base64EncodedString() {
             let request: Parameters = [
                 "requests": [
                     "image": [
