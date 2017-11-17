@@ -13,8 +13,9 @@ import Alamofire
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
    //UIImageView to stock image datas
-    @IBOutlet weak var image: UIImageView!
     var selectedImage: UIImageView!
+    
+    @IBOutlet weak var image: UIImageView!
     
     //Squares for color spectrums
     @IBOutlet weak var square1: UIView!
@@ -59,15 +60,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let selected = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         dismiss(animated: true, completion: nil)
-        //selectedImage.image = selected
         image.image = selected
+        selectedImage = image
         
         detectImageProperty()
     }
     
     func detectImageProperty() {
         //Reduce the resolution of the selected image
-        var resizedSelectedImage = image.image?.resized(toWidth: 120.0)
+        var resizedSelectedImage = selectedImage.image?.resized(toWidth: 720.0)
         
         if let base64image = UIImagePNGRepresentation(resizedSelectedImage!)?.base64EncodedString() {
             let request: Parameters = [
@@ -111,15 +112,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var startXPosition = Int((colorBoxes[0]?.frame.origin.x)!)
         
         for i in 0...9 {
-            let blue = jsonColors[i]["color"]["blue"].floatValue
-            let red = jsonColors[i]["color"]["red"].floatValue
-            let green = jsonColors[i]["color"]["green"].floatValue
+            let blue = jsonColors[i]["color"]["blue"].intValue
+            let red = jsonColors[i]["color"]["red"].intValue
+            let green = jsonColors[i]["color"]["green"].intValue
             let score = jsonColors[i]["score"].floatValue
             let yPosition = colorBoxes[i]?.frame.origin.y
             let width = score * 100
             
-            colorBoxes[i]?.backgroundColor = UIColor(red: CGFloat(red / 255.0), green: CGFloat(green / 255.0), blue: CGFloat(blue / 255.0), alpha: 1.0)
+            colorBoxes[i]?.backgroundColor = UIColor.rgb(r: red, g: green, b: blue, alpha: 1.0)
             
+            //UIColor(red: CGFloat(red / 255.0), green: CGFloat(green / 255.0), blue: CGFloat(blue / 255.0), alpha: 1.0)
+
             colorBoxes[i]?.frame = CGRect(x:Int(startXPosition), y: Int(yPosition!), width: Int(width) , height: 100)
             startXPosition = startXPosition + Int(width)
    
@@ -128,7 +131,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func ShareButtonTapped(_ sender: UIButton) {
         // set up activity view controller
-        let imageToShare = [ image! ]
+        let imageToShare = [ selectedImage! ]
         let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
         

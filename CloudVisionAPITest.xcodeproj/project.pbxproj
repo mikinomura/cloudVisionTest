@@ -13,6 +13,7 @@
 		5FE0AE6C1FAC600E00C6B7A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE0AE6B1FAC600E00C6B7A7 /* Assets.xcassets */; };
 		5FE0AE6F1FAC600E00C6B7A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE0AE6D1FAC600E00C6B7A7 /* LaunchScreen.storyboard */; };
 		5FF32D3F1FBF0EA400A66370 /* UIImage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF32D3E1FBF0EA400A66370 /* UIImage+resize.swift */; };
+		5FF32D411FBF13F800A66370 /* UIColor+RGBConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF32D401FBF13F800A66370 /* UIColor+RGBConverter.swift */; };
 		D822BD428853382F8995D37F /* Pods_CloudVisionAPITest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294821CEC2814329820D57C9 /* Pods_CloudVisionAPITest.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		5FE0AE6E1FAC600E00C6B7A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FE0AE701FAC600E00C6B7A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FF32D3E1FBF0EA400A66370 /* UIImage+resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+resize.swift"; sourceTree = "<group>"; };
+		5FF32D401FBF13F800A66370 /* UIColor+RGBConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RGBConverter.swift"; sourceTree = "<group>"; };
 		FC4020B414224A562313D150 /* Pods-CloudVisionAPITest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudVisionAPITest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CloudVisionAPITest/Pods-CloudVisionAPITest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 				5FE0AE6D1FAC600E00C6B7A7 /* LaunchScreen.storyboard */,
 				5FE0AE701FAC600E00C6B7A7 /* Info.plist */,
 				5FF32D3E1FBF0EA400A66370 /* UIImage+resize.swift */,
+				5FF32D401FBF13F800A66370 /* UIColor+RGBConverter.swift */,
 			);
 			path = CloudVisionAPITest;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FF32D411FBF13F800A66370 /* UIColor+RGBConverter.swift in Sources */,
 				5FE0AE671FAC600E00C6B7A7 /* ViewController.swift in Sources */,
 				5FE0AE651FAC600E00C6B7A7 /* AppDelegate.swift in Sources */,
 				5FF32D3F1FBF0EA400A66370 /* UIImage+resize.swift in Sources */,

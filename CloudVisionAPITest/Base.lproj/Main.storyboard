@@ -21,9 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="krG-n8-sSO">
-                                <rect key="frame" x="0.0" y="28" width="25" height="25"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v95-2x-eD4">
                                 <rect key="frame" x="172" y="515" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -91,15 +88,15 @@
                                     <action selector="ShareButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v2e-hF-KBq"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T5l-T6-keC">
+                                <rect key="frame" x="67" y="20" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="krG-n8-sSO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EKc-iN-Jsx"/>
-                            <constraint firstAttribute="trailing" secondItem="krG-n8-sSO" secondAttribute="trailing" id="eV1-EO-22k"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="image" destination="krG-n8-sSO" id="Nwo-o0-u79"/>
+                        <outlet property="image" destination="T5l-T6-keC" id="PUV-Vc-NLp"/>
                         <outlet property="square1" destination="xyC-vq-0dm" id="FrS-Zi-wc4"/>
                         <outlet property="square10" destination="KZf-fi-C9k" id="HeS-15-2Xi"/>
                         <outlet property="square2" destination="drr-qP-Cgv" id="mEe-8y-MS5"/>
